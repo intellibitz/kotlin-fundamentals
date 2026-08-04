@@ -12,10 +12,10 @@ fun celsiusToKelvin(c: Double): Double = c + 273.15
 
 fun main() {
     println("Enter mode (C2F, F2C, C2K):")
-    var mode = readLine() ?: ""
+    val mode = readlnOrNull()?.uppercase() ?: ""
 
     println("Enter value:")
-    val inputStr = readLine()
+    val inputStr = readlnOrNull()
 
     // this next line will likely throw if input isn't a valid number —
     // that's expected for now, we fix it properly on Day 6 (null safety)
