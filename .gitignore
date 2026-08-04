@@ -14,3 +14,6 @@ build
 *.iml
 /app/bin/
 /.vscode/
+/app/.settings/
+/app/.classpath
+/app/.project

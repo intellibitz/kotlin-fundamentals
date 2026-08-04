@@ -1,32 +1,42 @@
 package org.example
 
 class Day3 {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
+
+    fun celsiusToFahrenheit(c: Double): Double = c * 9 / 5 + 32
+
+    fun fahrenheitToCelsius(f: Double): Double = (f - 32) * 5 / 9
+
+    fun celsiusToKelvin(c: Double): Double = c + 273.15
+
 }
-fun celsiusToFahrenheit(c: Double): Double = c * 9 / 5 + 32
-fun fahrenheitToCelsius(f: Double): Double = (f - 32) * 5 / 9
-fun celsiusToKelvin(c: Double): Double = c + 273.15
 
 fun main() {
     println("Enter mode (C2F, F2C, C2K):")
-    val mode = readlnOrNull()?.uppercase() ?: ""
+    val mode =
+        readlnOrNull()?.uppercase()
+            ?: run {
+                println("No mode provided.")
+                return
+            }
 
     println("Enter value:")
-    val inputStr = readlnOrNull()
-
-    // this next line will likely throw if input isn't a valid number —
-    // that's expected for now, we fix it properly on Day 6 (null safety)
-    val input = inputStr!!.toDouble()
-
-    val result = when (mode) {
-        "C2F" -> celsiusToFahrenheit(input)
-        "F2C" -> fahrenheitToCelsius(input)
-        "C2K" -> celsiusToKelvin(input)
-        else -> throw IllegalArgumentException("Unknown mode: $mode")
+    val input = readlnOrNull()?.toDoubleOrNull()
+    if (input == null) {
+        println("Invalid input. Please enter a valid number.")
+        return
     }
+
+    val day3 = Day3()
+    val result =
+        when (mode) {
+            "C2F" -> day3.celsiusToFahrenheit(input)
+            "F2C" -> day3.fahrenheitToCelsius(input)
+            "C2K" -> day3.celsiusToKelvin(input)
+            else -> {
+                println("Unknown mode: $mode")
+                return
+            }
+        }
 
     println("Input: $input, Mode: $mode, Result: $result")
 }

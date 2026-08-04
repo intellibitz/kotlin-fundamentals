@@ -6,11 +6,12 @@
  */
 
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    alias(libs.plugins.kotlin.jvm)
+    // Apply the Kotlin JVM plugin directly so editor Gradle import can resolve it.
+    kotlin("jvm") version "2.3.21"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    eclipse
 }
 
 repositories {
@@ -23,6 +24,8 @@ dependencies {
     testImplementation(libs.junit.jupiter)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // The Kotlin standard library is required for Kotlin language support and runtime.
 
     // This dependency is used by the application.
     implementation(libs.guava)
@@ -38,7 +41,6 @@ java {
 application {
     // Define the main class for the application.
     mainClass = "org.example.AppKt"
-    mainClass = "org.example.Day3Kt"
 }
 
 tasks.named<Test>("test") {
