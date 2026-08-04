@@ -11,5 +11,5 @@ class App {
 }
 
 fun main() {
-    println(App().greeting)
+    println(Day3().greeting)
 }
