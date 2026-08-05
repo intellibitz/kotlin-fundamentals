@@ -1,8 +1,8 @@
 package org.example
 
 class Day3 {
-    fun celsiusToFahrenheit(c: Double): Double = c * 9 / 5 + 32
-    fun fahrenheitToCelsius(f: Double): Double = (f - 32) * 5 / 9
+    fun celsiusToFahrenheit(c: Double): Double = (c * 1.8) + 32.0
+    fun fahrenheitToCelsius(f: Double): Double = (f - 32.0) / 1.8
     fun celsiusToKelvin(c: Double): Double = c + 273.15
 }
 

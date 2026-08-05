@@ -7,7 +7,7 @@
 
 plugins {
     // Apply the Kotlin JVM plugin directly so editor Gradle import can resolve it.
-    kotlin("jvm") version "2.3.21"
+    alias(libs.plugins.kotlin.jvm)
     // Apply the application plugin to add support for building a CLI application in Java.
     application
 //    eclipse
@@ -22,9 +22,6 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    // The Kotlin standard library is required for Kotlin language support and runtime.
-    // This dependency is used by the application.
-    implementation(libs.guava)
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
