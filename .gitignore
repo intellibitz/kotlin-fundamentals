@@ -1,26 +1,27 @@
-# Ignore Gradle project-specific cache directory
-.gradle
-/.gradle
+# Gradle
+.gradle/
+build/
 
-# Ignore Gradle build output directory
-build
-/build
-
-# Ignore Kotlin plugin data
-.kotlin
-
-.idea
-/.idea
+# IntelliJ / Android Studio
+.idea/
 *.iml
+*.iws
+out/
+local.properties
 
-.vscode
-/.vscode/
+# Kotlin
+.kotlin/
+kotlin-js-store/
 
-.settings
+# VS Code
+.vscode/
+
+# Eclipse
+.settings/
 .classpath
 .project
-bin
-/app/bin/
-/app/.settings/
-/app/.classpath
-/app/.project
+bin/
+
+# OS specific
+.DS_Store
+Thumbs.db
