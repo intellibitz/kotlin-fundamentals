@@ -1,13 +1,9 @@
 package org.example
 
 class Day3 {
-
     fun celsiusToFahrenheit(c: Double): Double = c * 9 / 5 + 32
-
     fun fahrenheitToCelsius(f: Double): Double = (f - 32) * 5 / 9
-
     fun celsiusToKelvin(c: Double): Double = c + 273.15
-
 }
 
 fun main() {
@@ -18,14 +14,12 @@ fun main() {
                 println("No mode provided.")
                 return
             }
-
     println("Enter value:")
     val input = readlnOrNull()?.toDoubleOrNull()
     if (input == null) {
         println("Invalid input. Please enter a valid number.")
         return
     }
-
     val day3 = Day3()
     val result =
         when (mode) {
@@ -37,6 +31,5 @@ fun main() {
                 return
             }
         }
-
     println("Input: $input, Mode: $mode, Result: $result")
 }
