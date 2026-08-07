@@ -15,12 +15,20 @@ object ContactBook {
     fun all(): List<Contact> = contacts
 }
 
+fun greetContact(book: List<Contact>, name: String): String {
+    val contact = book.firstOrNull { it.name.equals(name, ignoreCase = true) }
+    return contact?.let { "Hello, ${it.name}! Your number is ${it.phone}" }
+        ?: "No contact named '$name' found"
+}
+
 fun main() {
     ContactBook.add(Contact("Alice", "555-1234"))
     ContactBook.add(Contact("Bob", "555-5678"))
 
+    val contacts = ContactBook.all()
+    println(greetContact(contacts, "Alice"))
     println("All contacts:")
-    ContactBook.all().forEach { println(it) }
+    contacts.forEach { println(it) }
 
     val found = ContactBook.findByName("alice")
     println("Found: $found")
