@@ -1,10 +1,8 @@
 package org.example
 
-class Day3 {
-    fun celsiusToFahrenheit(c: Double): Double = (c * 1.8) + 32.0
-    fun fahrenheitToCelsius(f: Double): Double = (f - 32.0) / 1.8
-    fun celsiusToKelvin(c: Double): Double = c + 273.15
-}
+fun fahrenheitToCelsius(f: Double): Double = (f - 32.0) / 1.8
+fun celsiusToKelvin(c: Double): Double = c + 273.15
+fun celsiusToFahrenheit(c: Double): Double = (c * 1.8) + 32.0
 
 fun main() {
     println("Enter mode (C2F, F2C, C2K):")
@@ -20,12 +18,11 @@ fun main() {
         println("Invalid input. Please enter a valid number.")
         return
     }
-    val day3 = Day3()
     val result =
         when (mode) {
-            "C2F" -> day3.celsiusToFahrenheit(input)
-            "F2C" -> day3.fahrenheitToCelsius(input)
-            "C2K" -> day3.celsiusToKelvin(input)
+            "C2F" -> celsiusToFahrenheit(input)
+            "F2C" -> fahrenheitToCelsius(input)
+            "C2K" -> celsiusToKelvin(input)
             else -> {
                 println("Unknown mode: $mode")
                 return
